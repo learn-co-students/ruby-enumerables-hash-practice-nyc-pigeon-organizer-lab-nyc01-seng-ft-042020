@@ -1,19 +1,19 @@
 def nyc_pigeon_organizer(data)
-  new_hash = {}
-  data.each do |trait, hash|
-    hash.each do |characteristic, array|
+  pigeons = {}
+  data.each do |attribute, hash|
+    hash.each do |trait, array|
       array.each do |name|
-        if !new_hash.has_key?(name)
-          new_hash[name] = {}
+        if !pigeons.has_key?(name)
+          pigeons[name] = {}
         end
-        if !new_hash[name].has_key?(trait)
-          new_hash[name][trait] = []
+        if !pigeons[name].has_key?(attribute)
+          pigeons[name][attribute] = []
         end
-        if !new_hash[name][trait].include?(characteristic)
-          new_hash[name][trait] << characteristic.to_s
+        if !pigeons[name][attribute].include?(trait)
+          pigeons[name][attribute] << trait.to_s
         end
       end
     end
   end
-  new_hash
+  pigeons
 end
